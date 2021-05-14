@@ -11,7 +11,7 @@ public class Button_dead extends JButton {
     public Button_dead (){
         Color c001 = new Color(0x900E1B);
         this.setBackground(c001);
-        this.setText("Draw");
+        this.setText("Dead");
         this.setHorizontalTextPosition(RIGHT);
         this.setVerticalAlignment(CENTER);
         this.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));

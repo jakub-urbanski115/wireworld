@@ -11,7 +11,7 @@ public class Button_cable extends JButton {
     public Button_cable (){
         Color c001 = new Color(0x900E1B);
         this.setBackground(c001);
-        this.setText("Draw");
+        this.setText("Cable");
         this.setHorizontalTextPosition(RIGHT);
         this.setVerticalAlignment(CENTER);
         this.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));
