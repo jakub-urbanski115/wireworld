@@ -11,6 +11,7 @@ public class Button_StartStop extends JButton {
         this.setHorizontalTextPosition(RIGHT);
         this.setVerticalAlignment(CENTER);
         this.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));
+        this.setText("START");
         this.setPreferredSize(new Dimension(500,100));
         this.setFocusable(false);
     }
