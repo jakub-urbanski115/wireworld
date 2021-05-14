@@ -51,9 +51,13 @@ public class Left_Panel extends JPanel {
                 Object o = w2.getSource();
                 if (o == startStop) {
                     if (startStop.getText().equals("START")) {
-                        startStop.setText("STOP");
+                        if(suc001){
+                            //infloopstart
+                            startStop.setText("STOP");
+                        }
                     } else {
                         startStop.setText("START");
+                        //infloopstop
                     }
 
                 } else if (o == bconfirm) {
@@ -122,6 +126,7 @@ public class Left_Panel extends JPanel {
                     } else {
                         if (suc001) {
                             new GM_lgen_loop(wrldlgen001, apath);
+                            startStop.setText("Inprogress");
                         }
                     }
                 } else if (o == path) {
