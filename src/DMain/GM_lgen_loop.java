@@ -1,5 +1,7 @@
 package DMain;
 
+import GUI.RP_2D_wireworld_animation;
+
 import java.io.File;
 
 public class GM_lgen_loop {

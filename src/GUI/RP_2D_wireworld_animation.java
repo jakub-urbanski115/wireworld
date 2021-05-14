@@ -14,16 +14,23 @@ public class RP_2D_wireworld_animation extends JPanel implements ActionListener 
     private final int cell_HEIGHT =10;
     private final int rec_WIDTH = 10;
     private final int rec_HEIGHT = 10;
+    int lgen;
+    int cgen = 0;
     int [][] wrld= new int[rows][columns];
 
     Timer timer;
 
-    public RP_2D_wireworld_animation (int f){
+    public RP_2D_wireworld_animation (){
         this.setPreferredSize(new Dimension(columns*cell_WIDTH,rows*cell_HEIGHT));
         this.setBackground(Color.black);
+
+    }
+    public RP_2D_wireworld_animation (int lgen){
         timer = new Timer(1000,this);
         timer.start();
-
+    }
+    private void stop(){
+        timer.stop();
     }
     public void paint (Graphics g){
         super.paint(g);
@@ -48,7 +55,10 @@ public class RP_2D_wireworld_animation extends JPanel implements ActionListener 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        cgen++;
+        if(cgen==lgen){
+            stop();
+        }
         repaint();
     }
 }
