@@ -1,0 +1,10 @@
+Diode 10 10
+Diode 5 5
+Cable 4 5
+Cable 3 5
+Cable 2 5
+Cable 1 5
+Cable 0 5
+Cable 10 5
+Tail 0 5
+Head 1 5
