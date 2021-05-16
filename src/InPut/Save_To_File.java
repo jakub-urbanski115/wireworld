@@ -43,9 +43,9 @@ public class Save_To_File {
 
         for(int i = 0; i < y; i++) {
             for (int j = 0; j < x; j++) {
-                if(copy[j][i] == 2)
+                if(copy[j][i] == 1)
                     write.write("Head " + j + " " + i + "\n" );
-                else if(copy[j][i] == 3)
+                else if(copy[j][i] == 2)
                     write.write("Tail " + j + " " + i + "\n" );
             }
         }
