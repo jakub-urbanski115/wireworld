@@ -8,11 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import static javax.swing.SwingUtilities.getWindowAncestor;
 
-public class Third_Window extends JFrame {
+
+public class Third_Window  {
 
     private static final Left_Panel003 pleft = new Left_Panel003();
-    private static final RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
+    public RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
 
     private int wrlddim001;
     private int wrldlgen001;
@@ -20,18 +22,22 @@ public class Third_Window extends JFrame {
     private boolean suc001 = false;
     private boolean suc002 = false;
 
+    JFrame frame003 = new JFrame();
+
     public Third_Window() {
-        this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame003.setLayout(new BorderLayout());
+        frame003.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.add(pleft, BorderLayout.WEST);
-        this.add(pright, BorderLayout.EAST);
+        frame003.add(pleft, BorderLayout.WEST);
+        frame003.add(pright, BorderLayout.EAST);
 
-        this.pack();
-        this.setResizable(false);
-        this.setVisible(true);
+        setbuttonsListener03();
+
+        frame003.pack();
+        frame003.setResizable(false);
+        frame003.setVisible(true);
     }
-    private void set_buttons3() {
+    private void setbuttonsListener03() {
 
         ActionListener buttonListener03 = new ActionListener() {
             @Override
@@ -57,6 +63,9 @@ public class Third_Window extends JFrame {
                     } else {
                         if (suc001) {
                             new GM_lgen_loop(wrldlgen001, apath);
+                            pright.setVisible(false);
+                            RP_2D_wireworld_animation pright02 = new RP_2D_wireworld_animation(wrldlgen001);
+                            frame003.add(pright02);
                             pleft.startStop.setText("Inprogress");
                         }
                     }
@@ -65,6 +74,7 @@ public class Third_Window extends JFrame {
                     int decision = chooser.showOpenDialog(null);
                     if (decision == JFileChooser.APPROVE_OPTION) {
                         apath = chooser.getSelectedFile();
+
                         suc002 = true;
                     }
                 }

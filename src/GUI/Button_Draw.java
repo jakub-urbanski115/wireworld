@@ -20,16 +20,4 @@ public class Button_Draw extends JButton {
         this.setFocusable(false);
         }
 
-
-    public void second_window(){
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Second_Window window = new Second_Window();
-
-            }
-        });
-
-    }
-
 }

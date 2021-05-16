@@ -7,30 +7,37 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 
-public class Second_Window extends JFrame {
-    public static Left_Panel002 pleft = new Left_Panel002();
-    public static RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
+public class Second_Window  {
+    private static Left_Panel002 pleft = new Left_Panel002();
+    RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
+
 
     private int wrlddim001;
     private int wrldlgen001;
     private File apath;
     private boolean suc001 = false;
-
+    JFrame frame002 = new JFrame();
 
 
     public Second_Window(){
-        this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-        this.add(pleft,BorderLayout.WEST);
-
-        this.add(pright,BorderLayout.EAST);
-
-        this.pack();
-        this.setResizable(false);
-        this.setVisible(true);
+        init_Second_Window();
     }
+
+    private void init_Second_Window(){
+
+        frame002.setLayout(new BorderLayout());
+        frame002.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame002.add(pleft,BorderLayout.WEST);
+        frame002.add(pright,BorderLayout.EAST);
+
+        setUpButtonListener02();
+
+        frame002.pack();
+        frame002.setResizable(false);
+        frame002.setVisible(true);
+    }
+
     private void setUpButtonListener02() {
         ActionListener buttonListener2 = new ActionListener() {
             @Override

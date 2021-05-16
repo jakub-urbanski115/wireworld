@@ -42,9 +42,9 @@ public class First_Window extends JFrame{
                 goner();
                 Object o = e.getSource();
                 if(o == butf){
-                    butf.second_window();
+                    Second_Window window = new Second_Window();
                 }else if (o == butr){
-                    butr.third_window();
+                    Third_Window window = new Third_Window();
                 }
             }
         };
@@ -54,4 +54,5 @@ public class First_Window extends JFrame{
     public void goner(){
         this.setVisible(false);
     }
+
 }

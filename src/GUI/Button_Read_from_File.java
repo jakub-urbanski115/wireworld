@@ -18,15 +18,5 @@ public class Button_Read_from_File extends JButton {
         this.setFocusable(false);
 
     }
-    public void third_window(){
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Third_Window window = new Third_Window();
-
-            }
-        });
-
-    }
 
 }
