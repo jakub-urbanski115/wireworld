@@ -2,6 +2,7 @@ package GUI;
 
 import DMain.GM_lgen_loop;
 import InPut.Read_From_File;
+import InPut.Save_To_File;
 import InPut.World;
 import PGame.Game;
 
@@ -11,20 +12,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.concurrent.TimeUnit;
-
-import static javax.swing.SwingUtilities.getWindowAncestor;
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Third_Window  {
 
     private static final Left_Panel003 pleft = new Left_Panel003();
-    public RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
+    private RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
 
     private int wrldlgen001;
     private File apath;
     private boolean suc001 = false;
     private boolean suc002 = false;
+
+    World world = new World();
+    Game game = new Game();
+
 
     JFrame frame003 = new JFrame();
 
@@ -32,8 +37,8 @@ public class Third_Window  {
         frame003.setLayout(new BorderLayout());
         frame003.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame003.add(pright,BorderLayout.EAST);
         frame003.add(pleft, BorderLayout.WEST);
-        frame003.add(pright, BorderLayout.EAST);
 
         setbuttonsListener03();
 
@@ -66,47 +71,43 @@ public class Third_Window  {
                         pleft.startStop.setText("najpierw PATH");
                     } else {
                         if (suc001) {
+                            pleft.startStop.setText("Inprogress");
                             pright.setVisible(false);
-
-
-                            Read_From_File f = new Read_From_File();
+                            try {
+                                new GM_lgen_loop(wrldlgen001, apath, frame003);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                            /*Read_From_File f = new Read_From_File();
                             try {
                                 f.read_from_file(apath);
                             } catch (FileNotFoundException e) {
                                 e.printStackTrace();
                             }
-                            World world = new World();
-                            Game game = new Game();
-
                             RP_2D_wireworld_animation pright02 = new RP_2D_wireworld_animation(world);
                             frame003.add(pright02);
+                            pright02.setVisible(true);
 
                             for(int i = 0 ; i<wrldlgen001;i++){
                                 game.world_loop(world);
-                                System.out.println(i);
                                 pright02.update(world);
 
-
-
-                                int [][] copiedworld;
-                                copiedworld = world.copy_world();
-                                int x = world.getXdim();
-                                int y = world.getYdim();
-
-                                for(int k = 0; k < y; k++) {
-                                    for (int j = 0; j < x; j++) {
-                                        System.out.print(copiedworld[j][k] + " ");
-                                    }
-                                    System.out.print("\n");
-                                }
-
-
-
-
+                                //timer.schedule(refresh(pright02),0,500);
 
                             }
 
-                            pleft.startStop.setText("Inprogress");
+                            Save_To_File save = new Save_To_File();
+
+                            try {
+                                save.save_to_file(wrldlgen001);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+
+*/
+
+                            pleft.startStop.setText("Done");
                         }
                     }
                 } else if (o == pleft.path) {
@@ -123,4 +124,5 @@ public class Third_Window  {
         pleft.startStop.addActionListener(buttonListener03);
         pleft.path.addActionListener(buttonListener03);
     }
+
 }

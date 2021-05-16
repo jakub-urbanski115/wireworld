@@ -9,7 +9,7 @@ import java.io.File;
 
 public class Second_Window  {
     private static Left_Panel002 pleft = new Left_Panel002();
-    RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
+    private RP_2D_wireworld_animation pright = new RP_2D_wireworld_animation();
 
 
     private int wrlddim001;
@@ -27,9 +27,8 @@ public class Second_Window  {
 
         frame002.setLayout(new BorderLayout());
         frame002.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame002.add(pleft,BorderLayout.WEST);
         frame002.add(pright,BorderLayout.EAST);
+        frame002.add(pleft,BorderLayout.WEST);
 
         setUpButtonListener02();
 
