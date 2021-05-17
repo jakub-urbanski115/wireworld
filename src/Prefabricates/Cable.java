@@ -8,6 +8,9 @@ public class Cable {
         World world = new World();
         if(collision_cable(x,y) == 0)
             world.overwrite(x,y,3);
+        else{
+            System.out.println("Nastąpiła kolizja prefabrykatów");
+        }
     }
 
     private int collision_cable(int x, int y){
