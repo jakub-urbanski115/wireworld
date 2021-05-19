@@ -36,7 +36,6 @@ public class RP_2D_wireworld_animation extends JPanel  {
         Game game = new Game();
         rows = world.getYdim();
         columns = world.getXdim();
-        wrld = world.copy_world();
         this.setPreferredSize(new Dimension(columns*cell_WIDTH,rows*cell_HEIGHT));
         new Timer(interval, new ActionListener() {
             int currentFrame = 0;
@@ -53,7 +52,9 @@ public class RP_2D_wireworld_animation extends JPanel  {
 
     public void paint (Graphics g){
         super.paint(g);
-        wrld = world.copy_world();
+        if(world !=null) {
+            wrld = world.copy_world();
+        }
         Graphics2D g2D = (Graphics2D)g;
 
         for(int i = 0; i<rows;i++){
