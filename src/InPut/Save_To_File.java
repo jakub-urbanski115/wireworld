@@ -18,20 +18,8 @@ public class Save_To_File {
         while ((line = br.readLine()) != null) {
             String[] w = line.split("\\s+");
             if (w.length == 3) {
-                if (w[0].equals("Diode")) {
-                    write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
-                } else if (w[0].equals("Cable")) {
-                    write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
-                } else if (w[0].equals("And")) {
-                    write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
-                } else if (w[0].equals("Generator")) {
-                    write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
-                } else if (w[0].equals("Not")) {
-                    write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
-                } else if (w[0].equals("Or")) {
-                    write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
-                } else if (w[0].equals("Xor")) {
-                    write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
+                switch (w[0]) {
+                    case "Diode", "Cable", "And", "Generator", "Not", "Or", "Xor" -> write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
                 }
             }
 
