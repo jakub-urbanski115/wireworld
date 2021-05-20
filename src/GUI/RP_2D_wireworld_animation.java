@@ -34,8 +34,8 @@ public class RP_2D_wireworld_animation extends JPanel  {
     public RP_2D_wireworld_animation(World wrld0,int lgen){
         world = wrld0;
         Game game = new Game();
-        rows = world.getYdim();
-        columns = world.getXdim();
+        rows = world.getXdim();
+        columns = world.getYdim();
         this.setPreferredSize(new Dimension(columns*cell_WIDTH,rows*cell_HEIGHT));
         new Timer(interval, new ActionListener() {
             int currentFrame = 0;

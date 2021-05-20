@@ -28,7 +28,7 @@ public class GM_lgen_loop {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        RP_2D_wireworld_animation pright02 = new RP_2D_wireworld_animation(world,lgen);
+        RP_2D_wireworld_animation pright02 = new RP_2D_wireworld_animation(world,lgen-1);
         frame.add(pright02);
         pright02.setVisible(true);
 /*
