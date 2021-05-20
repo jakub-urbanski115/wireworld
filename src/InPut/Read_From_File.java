@@ -30,7 +30,7 @@ public class Read_From_File {
                         case "Or":
                         case "Xor":
                         case "Head":
-                        case "Tail": {
+                        case "Tail":
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
@@ -38,7 +38,7 @@ public class Read_From_File {
                             } else {
                                 System.out.println("Zły typ wartości wspołrzędnej w linii " + linenr + ". Współrzędne powinny być liczbami całkowitymi nieujemnymi");
                             }
-                        }
+                        break;
                         default : {
                             linenr++;
                             System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
