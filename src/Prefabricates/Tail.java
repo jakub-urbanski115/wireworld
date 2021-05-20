@@ -8,6 +8,9 @@ public class Tail {
         World world = new World();
         if(collision_tail(x,y) == 0)
             world.overwrite(x,y,2);
+        else{
+            System.out.println("Nastąpiła kolizja prefabrykatów");
+        }
     }
 
     private int collision_tail(int x, int y){

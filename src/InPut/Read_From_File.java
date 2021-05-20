@@ -11,68 +11,51 @@ public class Read_From_File {
     private static File f;
 
     //funkcja ta czyta plik, ustala maksymalne granice swiata na podstawie maksymalnych wspolrzednych prefabrykatow i na tej podstawie tworzy swiat
-    public void read_from_file(File f) throws FileNotFoundException {
-        this.f = f;
+    public void read_from_file(File f) {
+        Read_From_File.f = f;
         try {
             int linenr = 0;
             FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String line;
-            while( (line = br.readLine()) != null){
-                String [] w = line.split("\\s+");
-                if( w.length == 3) {
-                    if (w[0].equals("Diode")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("Cable")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("And")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("Generator")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("Head")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("Not")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("Or")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("Tail")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else if (w[0].equals("Xor")) {
-                        if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
-                        if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
-                        linenr++;
-                    } else {
-                        linenr++;
-                        System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
+            while ((line = br.readLine()) != null) {
+                String[] w = line.split("\\s+");
+                if (w.length == 3) {
+                    switch (w[0]) {
+                        case "Diode":
+                        case "Cable":
+                        case "And":
+                        case "Generator":
+                        case "Not":
+                        case "Or":
+                        case "Xor":
+                        case "Head":
+                        case "Tail": {
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
+                                if (maxY < Integer.parseInt(w[2])) maxY = Integer.parseInt(w[2]);
+                            } else {
+                                System.out.println("Zły typ wartości wspołrzędnej w linii " + linenr + ". Współrzędne powinny być liczbami całkowitymi nieujemnymi");
+                            }
+                        }
+                        default : {
+                            linenr++;
+                            System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
+                        }
+                        break;
                     }
-                }
-                else{
+                } else {
                     linenr++;
-                    System.out.println("Zła liczba argumentów w linii " + linenr);}
+                    System.out.println("Zła liczba argumentów w linii " + linenr);
+                }
             }
             World world = new World();
 
             world.set_world(maxX, maxY);
 
             setprefabricates(f);
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println("nie można odczytać pliku");
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,65 +64,116 @@ public class Read_From_File {
     }
 
     //funkcja ta sluzy do odczytania prefabrykatow z pliku i "narysowaniu" ich na mapie swiata
-    public void setprefabricates(File f){
+    public void setprefabricates(File f) {
         try {
             int linenr = 0;
             FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String line;
-            while( (line = br.readLine()) != null){
-                String [] w = line.split("\\s+");
-                if( w.length == 3) {
-                    if (w[0].equals("Diode")) {
-                        Diode diode = new Diode();
-                        diode.draw_diode(Integer.parseInt(w[1]),Integer.parseInt(w[2]));
-                        linenr++;
-                    } else if (w[0].equals("Cable")) {
-                        Cable cable = new Cable();
-                        cable.draw_cable(Integer.parseInt(w[1]),Integer.parseInt(w[2]));
-                        linenr++;
-                    } else if (w[0].equals("And")) {
-                        // tu wkrótce będzie kod :)
-                        linenr++;
-                    } else if (w[0].equals("Generator")) {
-                        // tu wkrótce będzie kod :)
-                        linenr++;
-                    } else if (w[0].equals("Head")) {
-                        Head head = new Head();
-                        head.draw_head(Integer.parseInt(w[1]),Integer.parseInt(w[2]));
-                        linenr++;
-                    } else if (w[0].equals("Not")) {
+            while ((line = br.readLine()) != null) {
+                String[] w = line.split("\\s+");
+                if (w.length == 3) {
+                    switch (w[0]) {
+                        case "Diode" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Diode diode = new Diode();
+                                diode.draw_diode(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
 
-                        linenr++;
-                    } else if (w[0].equals("Or")) {
-                        // tu wkrótce będzie kod :)
-                        linenr++;
-                    } else if (w[0].equals("Tail")) {
-                        Tail tail = new Tail();
-                        tail.draw_tail(Integer.parseInt(w[1]),Integer.parseInt(w[2]));
-                        linenr++;
-                    } else if (w[0].equals("Xor")) {
-                        // tu wkrótce będzie kod :)
-                        linenr++;
-                    } else {
-                        linenr++;
-                        System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
+                        case "Cable" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Cable cable = new Cable();
+                                cable.draw_cable(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        case "And" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                And and = new And();
+                                and.draw_and(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        case "Generator" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Generator generator = new Generator();
+                                generator.draw_generator(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        case "Head" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Head head = new Head();
+                                head.draw_head(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        case "Not" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Not not = new Not();
+                                not.draw_not(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        case "Or" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Or or = new Or();
+                                or.draw_or(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        case "Tail" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Tail tail = new Tail();
+                                tail.draw_tail(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        case "Xor" :
+                            linenr++;
+                            if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
+                                Xor xor = new Xor();
+                                xor.draw_xor(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
+                            }
+                            break;
+
+                        default :
+                            linenr++;
+                            System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
+
                     }
-                }
-                else{
+                } else {
                     linenr++;
-                    System.out.println("Zła liczba argumentów w linii " + linenr);}
+                    System.out.println("Zła liczba argumentów w linii " + linenr);
+                }
             }
 
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println("nie można odczytać pliku");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public File getFile(){
+
+    public File getFile() {
         return f;
     }
 
+    public int parse(String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+
+    }
 }

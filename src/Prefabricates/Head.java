@@ -8,6 +8,9 @@ public class Head {
         World world = new World();
         if(collision_head(x,y) == 0)
             world.overwrite(x,y,1);
+        else{
+            System.out.println("Nastąpiła kolizja prefabrykatów");
+        }
     }
 
     private int collision_head(int x, int y){

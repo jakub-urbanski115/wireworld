@@ -7,7 +7,7 @@ public class World {
 
     public void set_world(int maxX, int maxY){
         Read_From_File r = new Read_From_File();
-        X = maxX + 10;
+        X = maxX + 15;
         Y = maxY + 10;
         world = new int[X][Y];
 
@@ -32,8 +32,7 @@ public class World {
         for(int i = 0; i < Y; i++)
             for (int j = 0; j < X; j++)
                 copy[j][i] = world[j][i];
-
-        return copy;
+            return copy;
     }
 
     public int getXdim(){
