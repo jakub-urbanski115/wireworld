@@ -23,11 +23,7 @@ public class GM_lgen_loop {
     public GM_lgen_loop(int lgen, File apath,JFrame frame) throws FileNotFoundException {
 
         Read_From_File f = new Read_From_File();
-        try {
-            f.read_from_file(apath);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        f.read_from_file(apath);
         RP_2D_wireworld_animation pright02 = new RP_2D_wireworld_animation(world,lgen-1);
         pright02.setVisible(true);
         JScrollPane scroller = new JScrollPane(pright02);

@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Main {
    /* public static void main(String [] args) throws IOException {
-        File file = new File("input/przyklad.txt");
+        File file = new File("input/przyklad2.txt");
         Read_From_File f = new Read_From_File();
         f.read_from_file(file);
 
