@@ -40,27 +40,8 @@ public class GM_lgen_loop {
 
         }*/
 
-        Save_To_File save = new Save_To_File();
-
-        try {
-            save.save_to_file(lgen);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
 
     }
 
-    public static void wait(int ms)
-    {
-        try
-        {
-            Thread.sleep(ms);
-        }
-        catch(InterruptedException ex)
-        {
-            Thread.currentThread().interrupt();
-        }
-    }
 
 }

@@ -1,5 +1,6 @@
 package GUI;
 
+import InPut.Save_To_File;
 import InPut.World;
 import PGame.Game;
 
@@ -7,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class RP_2D_wireworld_animation extends JPanel  {
 
@@ -19,11 +21,6 @@ public class RP_2D_wireworld_animation extends JPanel  {
     int [][] wrld= new int[rows][columns];
     int interval = 100;
     World world ;
-
-
-
-
-
 
 
     public RP_2D_wireworld_animation(){
@@ -44,8 +41,16 @@ public class RP_2D_wireworld_animation extends JPanel  {
                 repaint();
                 if (currentFrame != lgen)
                     currentFrame++;
-                else
-                    ((Timer)e.getSource()).stop();
+                else {
+                    Save_To_File save = new Save_To_File();
+
+                    try {
+                        save.save_to_file(lgen);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    ((Timer) e.getSource()).stop();
+                }
             }
         }).start();
     }

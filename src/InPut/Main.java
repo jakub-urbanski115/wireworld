@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String [] args) throws IOException {
+   /* public static void main(String [] args) throws IOException {
         File file = new File("input/przyklad.txt");
         Read_From_File f = new Read_From_File();
         f.read_from_file(file);
@@ -25,11 +25,11 @@ public class Main {
             }
             System.out.print("\n");
         }
-
         Save_To_File save = new Save_To_File();
 
         save.save_to_file(10);
 
 
-    }
+
+    }*/
 }
