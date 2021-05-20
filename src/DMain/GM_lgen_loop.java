@@ -29,8 +29,11 @@ public class GM_lgen_loop {
             e.printStackTrace();
         }
         RP_2D_wireworld_animation pright02 = new RP_2D_wireworld_animation(world,lgen-1);
-        frame.add(pright02);
         pright02.setVisible(true);
+        JScrollPane scroller = new JScrollPane(pright02);
+        scroller.setPreferredSize(new Dimension(720,720));
+        frame.add(scroller);
+        frame.pack();
 /*
         for(int i = 0 ; i<lgen;i++){
 

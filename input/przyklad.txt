@@ -8,3 +8,6 @@ Cable 0 5
 Cable 10 5
 Head 1 5
 Tail 0 5
+Diode 155 155
+Cable 154 154
+Cable 153 154
