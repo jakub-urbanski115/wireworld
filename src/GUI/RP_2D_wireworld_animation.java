@@ -1,6 +1,7 @@
 package GUI;
 
 import InPut.World;
+import PGame.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,30 +17,44 @@ public class RP_2D_wireworld_animation extends JPanel  {
     private final int rec_WIDTH = 10;
     private final int rec_HEIGHT = 10;
     int [][] wrld= new int[rows][columns];
+    int interval = 100;
+    World world ;
+
+
+
+
+
+
+
     public RP_2D_wireworld_animation(){
         this.setBackground(Color.black);
         this.setPreferredSize(new Dimension(720,720));
     }
 
-    public RP_2D_wireworld_animation(World world){
+    public RP_2D_wireworld_animation(World wrld0,int lgen){
+        world = wrld0;
+        Game game = new Game();
         rows = world.getYdim();
         columns = world.getXdim();
-        wrld = world.copy_world();
         this.setPreferredSize(new Dimension(columns*cell_WIDTH,rows*cell_HEIGHT));
-    }
-    public void update(World world2){
-        wrld = world2.copy_world();
-        repaint();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        new Timer(interval, new ActionListener() {
+            int currentFrame = 0;
+            public void actionPerformed(ActionEvent e) {
+                game.world_loop(world,interval);
+                repaint();
+                if (currentFrame != lgen)
+                    currentFrame++;
+                else
+                    ((Timer)e.getSource()).stop();
+            }
+        }).start();
     }
 
     public void paint (Graphics g){
         super.paint(g);
-
+        if(world !=null) {
+            wrld = world.copy_world();
+        }
         Graphics2D g2D = (Graphics2D)g;
 
         for(int i = 0; i<rows;i++){

@@ -2,18 +2,20 @@ package PGame;
 
 import InPut.World;
 
-public class Game {
+public class Game extends Thread{
 
     private int[][] tmpwrld;
     private int Xdim;
     private int Ydim;
+    private int delay;
 
     private void get_data(World world){
        Xdim = world.getXdim();
        Ydim = world.getYdim();
        tmpwrld = world.copy_world();
     }
-    public void world_loop(World world){
+    public void world_loop(World world,int d){
+        delay =d;
         get_data(world);
         for(int i = 0; i < Xdim; i++)
             for (int j = 0; j < Ydim; j++){
@@ -21,6 +23,13 @@ public class Game {
                 int value= rules(tmpwrld[i][j],cae);
                 world.overwrite(i,j,value);
             }
+        try {
+            sleep(delay);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.out.println("game delay exception");
+        }
+
     }
     private int count_electrons(int i, int j){
         int cae=0;
