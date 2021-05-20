@@ -19,10 +19,18 @@ public class Save_To_File {
             String[] w = line.split("\\s+");
             if (w.length == 3) {
                 switch (w[0]) {
-                    case "Diode", "Cable", "And", "Generator", "Not", "Or", "Xor" -> write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
+                    case "Diode":
+                    case "Cable":
+                    case "And":
+                    case "Generator":
+                    case "Not":
+                    case "Or":
+                    case "Xor":
+                        write.write(w[0] + " " + w[1] + " " + w[2] + "\n");
+                        break;
                 }
-            }
 
+            }
         }
         World world = new World();
         int [][] copy = world.copy_world();

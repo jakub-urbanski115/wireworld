@@ -22,7 +22,15 @@ public class Read_From_File {
                 String[] w = line.split("\\s+");
                 if (w.length == 3) {
                     switch (w[0]) {
-                        case "Diode", "Cable", "And", "Generator", "Head", "Not", "Or", "Tail", "Xor" -> {
+                        case "Diode":
+                        case "Cable":
+                        case "And":
+                        case "Generator":
+                        case "Not":
+                        case "Or":
+                        case "Xor":
+                        case "Head":
+                        case "Tail": {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 if (maxX < Integer.parseInt(w[1])) maxX = Integer.parseInt(w[1]);
@@ -31,10 +39,11 @@ public class Read_From_File {
                                 System.out.println("Zły typ wartości wspołrzędnej w linii " + linenr + ". Współrzędne powinny być liczbami całkowitymi nieujemnymi");
                             }
                         }
-                        default -> {
+                        default : {
                             linenr++;
                             System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
                         }
+                        break;
                     }
                 } else {
                     linenr++;
@@ -65,70 +74,70 @@ public class Read_From_File {
                 String[] w = line.split("\\s+");
                 if (w.length == 3) {
                     switch (w[0]) {
-                        case "Diode" -> {
+                        case "Diode" :{
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Diode diode = new Diode();
                                 diode.draw_diode(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "Cable" -> {
+                        case "Cable" : {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Cable cable = new Cable();
                                 cable.draw_cable(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "And" -> {
+                        case "And" : {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 And and = new And();
                                 and.draw_and(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "Generator" ->{
+                        case "Generator" :{
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Generator generator = new Generator();
                                 generator.draw_generator(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "Head" -> {
+                        case "Head" : {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Head head = new Head();
                                 head.draw_head(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "Not" -> {
+                        case "Not" : {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Not not = new Not();
                                 not.draw_not(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "Or" -> {
+                        case "Or" : {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Or or = new Or();
                                 or.draw_or(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "Tail" -> {
+                        case "Tail" : {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Tail tail = new Tail();
                                 tail.draw_tail(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        case "Xor" -> {
+                        case "Xor" : {
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Xor xor = new Xor();
                                 xor.draw_xor(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
                         }
-                        default -> {
+                        default : {
                             linenr++;
                             System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
                         }
