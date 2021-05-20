@@ -74,73 +74,82 @@ public class Read_From_File {
                 String[] w = line.split("\\s+");
                 if (w.length == 3) {
                     switch (w[0]) {
-                        case "Diode" :{
+                        case "Diode" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Diode diode = new Diode();
                                 diode.draw_diode(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "Cable" : {
+                            break;
+
+                        case "Cable" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Cable cable = new Cable();
                                 cable.draw_cable(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "And" : {
+                            break;
+
+                        case "And" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 And and = new And();
                                 and.draw_and(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "Generator" :{
+                            break;
+
+                        case "Generator" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Generator generator = new Generator();
                                 generator.draw_generator(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "Head" : {
+                            break;
+
+                        case "Head" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Head head = new Head();
                                 head.draw_head(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "Not" : {
+                            break;
+
+                        case "Not" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Not not = new Not();
                                 not.draw_not(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "Or" : {
+                            break;
+
+                        case "Or" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Or or = new Or();
                                 or.draw_or(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "Tail" : {
+                            break;
+
+                        case "Tail" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Tail tail = new Tail();
                                 tail.draw_tail(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        case "Xor" : {
+                            break;
+
+                        case "Xor" :
                             linenr++;
                             if (parse(w[1]) >= 0 && parse(w[2]) >= 0) {
                                 Xor xor = new Xor();
                                 xor.draw_xor(Integer.parseInt(w[1]), Integer.parseInt(w[2]));
                             }
-                        }
-                        default : {
+                            break;
+
+                        default :
                             linenr++;
                             System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
-                        }
+
                     }
                 } else {
                     linenr++;

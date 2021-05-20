@@ -28,7 +28,11 @@ public class World {
     }
 
     public int [][] copy_world(){
-        return world;
+        int [][] copy = new int [X][Y];
+        for(int i = 0; i < Y; i++)
+            for (int j = 0; j < X; j++)
+                copy[j][i] = world[j][i];
+            return copy;
     }
 
     public int getXdim(){
