@@ -7,7 +7,7 @@ public class World {
 
     public void set_world(int maxX, int maxY){
         Read_From_File r = new Read_From_File();
-        X = maxX + 15;
+        X = maxX + 20;
         Y = maxY + 10;
         world = new int[X][Y];
 

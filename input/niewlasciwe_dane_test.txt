@@ -1,0 +1,17 @@
+Diode 3 3
+Cable 2 3
+Cable 1 3
+Cable 0 3
+Cable 5 3
+Cable 6 3
+Head 1 3
+Tail 0 3
+And -3 5
+Or 10 -10
+Prefabrykat 10 10
+Xor abc def
+And 3 10
+Head 4 10
+Tail 3 10
+Head 4 13 
+Tail 3 13

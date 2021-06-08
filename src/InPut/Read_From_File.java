@@ -148,17 +148,17 @@ public class Read_From_File {
 
                         default :
                             linenr++;
-                            System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
+                            //System.out.println("Zła nazwa prefabrtykatu w linii " + linenr);
 
                     }
                 } else {
                     linenr++;
-                    System.out.println("Zła liczba argumentów w linii " + linenr);
+                    //System.out.println("Zła liczba argumentów w linii " + linenr);
                 }
             }
 
         } catch (FileNotFoundException e) {
-            System.err.println("nie można odczytać pliku");
+            //System.err.println("nie można odczytać pliku");
         } catch (IOException e) {
             e.printStackTrace();
         }
