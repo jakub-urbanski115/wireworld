@@ -1,5 +1,7 @@
 package DMain;
-
+/*
+opcjonalna czesc nie udalo sie zrealizowac
+ */
 public class GM_inf_loop {
     volatile boolean stop = false;
 

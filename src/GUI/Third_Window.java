@@ -70,44 +70,19 @@ public class Third_Window  {
                     if (!suc002) {
                         pleft.startStop.setText("najpierw PATH");
                     } else {
-                        if (suc001) {
-                            pleft.startStop.setText("Inprogress");
-                            pright.setVisible(false);
-                            try {
-                                new GM_lgen_loop(wrldlgen001, apath, frame003);
-                            } catch (FileNotFoundException e) {
-                                e.printStackTrace();
+                        if(wrldlgen001>0) {
+                            if (suc001) {
+                                pleft.startStop.setText("Inprogress");
+                                pright.setVisible(false);
+                                try {
+                                    new GM_lgen_loop(wrldlgen001, apath, frame003);
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                }
+                                pleft.startStop.setText("Done");
                             }
-                            /*Read_From_File f = new Read_From_File();
-                            try {
-                                f.read_from_file(apath);
-                            } catch (FileNotFoundException e) {
-                                e.printStackTrace();
-                            }
-                            RP_2D_wireworld_animation pright02 = new RP_2D_wireworld_animation(world);
-                            frame003.add(pright02);
-                            pright02.setVisible(true);
-
-                            for(int i = 0 ; i<wrldlgen001;i++){
-                                game.world_loop(world);
-                                pright02.update(world);
-
-                                //timer.schedule(refresh(pright02),0,500);
-
-                            }
-
-                            Save_To_File save = new Save_To_File();
-
-                            try {
-                                save.save_to_file(wrldlgen001);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-
-*/
-
-                            pleft.startStop.setText("Done");
+                        }else {
+                            pleft.startStop.setText("od kiedy generacje sa nie dodatnie");
                         }
                     }
                 } else if (o == pleft.path) {

@@ -30,15 +30,6 @@ public class GM_lgen_loop {
         scroller.setPreferredSize(new Dimension(720,720));
         frame.add(scroller);
         frame.pack();
-/*
-        for(int i = 0 ; i<lgen;i++){
-
-           // pright02.update(world);
-
-            //timer.schedule(refresh(pright02),0,500);
-
-        }*/
-
 
     }
 
