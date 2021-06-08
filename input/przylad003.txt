@@ -4,7 +4,7 @@ Cable 3 6
 Cable 2 6
 Cable 1 6
 Cable 0 6
-Diode 5 10
+Diode 5 1000
 Cable 4 10
 Cable 3 10
 Cable 2 10
