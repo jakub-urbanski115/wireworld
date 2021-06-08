@@ -1,0 +1,14 @@
+Cable 5 4
+Cable 6 4
+Cable 7 4
+Cable 5 6
+Cable 6 6
+Cable 7 6
+Cable 8 5
+Cable 4 5
+Head 7 6
+Tail 6 6
+Cable 9 4
+Cable 10 4
+Cable 11 4
+Not 12 4

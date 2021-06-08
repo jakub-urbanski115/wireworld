@@ -1,0 +1,10 @@
+Generator 15 15
+Cable 18 18
+Cable 17 17
+Cable 19 19
+Cable 20 20
+Cable 21 21
+Cable 22 22
+Cable 23 23
+Cable 23 23
+Generator 24 24

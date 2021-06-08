@@ -11,9 +11,9 @@ public class Not {
             world.overwrite(x+2,y,3);
             world.overwrite(x+3,y,3);
             world.overwrite(x+4,y-1,3);
-            world.overwrite(x+4,y+2,3);
+            world.overwrite(x+4,y+2,2);
             world.overwrite(x+5,y-2,3);
-            world.overwrite(x+5,y+1,3);
+            world.overwrite(x+5,y+1,1);
             world.overwrite(x+5,y+3,3);
             world.overwrite(x+6,y-2,3);
             world.overwrite(x+6,y+2,3);
