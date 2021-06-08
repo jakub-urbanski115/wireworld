@@ -1,5 +1,7 @@
 package GUI;
-
+/*
+opcjonalna czesc nie udalo sie zrealizowac
+ */
 import javax.swing.*;
 import java.awt.*;
 

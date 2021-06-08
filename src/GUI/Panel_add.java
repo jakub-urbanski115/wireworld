@@ -2,7 +2,9 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-
+/*
+opcjonalna czesc nie udalo sie zrealizowac
+ */
 
 public class Panel_add extends JPanel {
 

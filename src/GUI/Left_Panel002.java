@@ -7,7 +7,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
+/*
+opcjonalna czesc nie udalo sie zrealizowac
+ */
 
 public class Left_Panel002 extends JPanel {
 

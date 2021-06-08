@@ -5,7 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
+/*
+opcjonalna czesc nie udalo sie zrealizowac
+ */
 
 public class Second_Window  {
     private static Left_Panel002 pleft = new Left_Panel002();
