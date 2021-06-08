@@ -31,7 +31,7 @@ public class Not {
             world.overwrite(x+13,y,3);
         }
         else{
-            System.out.println("Nastąpiła kolizja prefabrykatów");
+            System.out.println("Nastąpiła kolizja prefabrykatu 'Not'");
         }
     }
 

@@ -9,7 +9,7 @@ public class Head {
         if(collision_head(x,y) == 0)
             world.overwrite(x,y,1);
         else{
-            System.out.println("Nastąpiła kolizja prefabrykatów");
+            System.out.println("Nastąpiła kolizja prefabrykatu 'Head'");
         }
     }
 

@@ -64,7 +64,7 @@ public class Read_From_File {
     }
 
     //funkcja ta sluzy do odczytania prefabrykatow z pliku i "narysowaniu" ich na mapie swiata
-    public void setprefabricates(File f) {
+    private void setprefabricates(File f) {
         try {
             int linenr = 0;
             FileReader fr = new FileReader(f);
@@ -168,7 +168,7 @@ public class Read_From_File {
         return f;
     }
 
-    public int parse(String s) {
+    private int parse(String s) {
         try {
             return Integer.parseInt(s);
         } catch (NumberFormatException e) {

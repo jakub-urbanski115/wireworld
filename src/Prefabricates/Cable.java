@@ -9,7 +9,7 @@ public class Cable {
         if(collision_cable(x,y) == 0)
             world.overwrite(x,y,3);
         else{
-            System.out.println("Nastąpiła kolizja prefabrykatów");
+            System.out.println("Nastąpiła kolizja prefabrykatu 'Cable'");
         }
     }
 

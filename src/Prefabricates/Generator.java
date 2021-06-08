@@ -14,7 +14,7 @@ public class Generator {
             world.overwrite(x+2,y,3);
         }
         else{
-            System.out.println("Nastąpiła kolizja prefabrykatów");
+            System.out.println("Nastąpiła kolizja prefabrykatu 'Generator'");
         }
     }
 

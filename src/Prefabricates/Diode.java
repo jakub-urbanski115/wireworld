@@ -14,7 +14,7 @@ public class Diode {
             world.overwrite(x+1,y+1,3);
         }
         else{
-            System.out.println("Nastąpiła kolizja prefabrykatów");
+            System.out.println("Nastąpiła kolizja prefabrykatu 'Diode'");
         }
 
     }

@@ -28,7 +28,7 @@ public class And {
             world.overwrite(x+5,y+3,3);
         }
         else{
-            System.out.println("Nastąpiła kolizja prefabrykatów");
+            System.out.println("Nastąpiła kolizja prefabrykatu 'And'");
         }
     }
 

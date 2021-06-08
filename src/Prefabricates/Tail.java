@@ -9,7 +9,7 @@ public class Tail {
         if(collision_tail(x,y) == 0)
             world.overwrite(x,y,2);
         else{
-            System.out.println("Nastąpiła kolizja prefabrykatów");
+            System.out.println("Nastąpiła kolizja prefabrykatu 'Tail'");
         }
     }
 
